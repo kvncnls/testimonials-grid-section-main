@@ -29,6 +29,7 @@ html {
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 13px;
 }
+
 li {
   list-style-type: none;
 }
@@ -80,13 +81,18 @@ li {
       }
     }
     .bold-text {
+      max-width: 98%;
       margin-bottom: 22px;
       font-size: 20px;
+      font-weight: 600;
       color: $light-gray;
+      line-height: 24px;
     }
     .quote {
       font-size: 13px;
+      font-weight: 500;
       color: $light-gray-70;
+      line-height: 135%;
     }
   }
   .purple {
