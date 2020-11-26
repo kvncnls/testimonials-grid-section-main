@@ -1,25 +1,24 @@
 /* ###################################### */
 /* ########### MUST READ! ########### */
 /* ###################################### */
-/* The JPG version and the Figma version of this design are different.
-And the cards are different within each of these versions too... */
+/*
 
-/* The purple card "Daniel Clifford" from the Mobile version (the free JPG version) has some irregularities in its design compared to the other cards. I thought I was going crazy, so I threw the JPG into Figma to do some manual measurements, and here's
+The JPG version and the Figma version of this design are different.
+
+The "Daniel Clifford" card from the Mobile (the free JPG) version has some irregularities in its design compared to the other cards. I thought I was going crazy, so I threw the JPG into Figma to do some manual measurements, and here's
 what I found:
 
-The bold section is misaligned, causing the strange "mid-course" alignment in the JPG.
-The large paragraph has a 48px padding to its right, while the other cards all have 32px.
+The bold text is misaligned, causing the strange "mid-course" alignment in the JPG. The large paragraph has a 48px padding to its right, while the other cards all have 32px.
 
-I ended up downloading the Figma version and lo-and-behold, I was right! And then
-I found that there are more discrepancies within the Figma file itself.
+I ended up using one of my credits to download the Figma version and lo-and-behold, I was right!
 
-If there's anyone from Front End Mentor reading this, let me know if I can help you out!
+I've been learning design and front-end development at the same time, and am pretty experienced with UI Design on Figma now. In my opinion, the Frames in Figma should be used instead Groups because Frames essentially represent Divs in development. This gives the developer a better idea of where he/she should create divs when writing out the code. The difference between Frames and Groups in Figma is that Frames can be used with padding, auto-layout, etc. There's a lot of similarities between Frames and what you can do with Divs, where as Figma Groups are just grouped elements with no concrete positioning of elements involved.
 
-I've been learning design and front-end development at the same time, and am very experienced with UI Design on Figma. In my opinion, Figma is best used with divs in mind when designing so as to help the developer get a better idea of where he/she should create divs (Ex: text should be in Frames, not just floating around in Groups).
+That being said, my design is based on the Figma file since it has less discrepancies compared to the free JPG version.
+
+Let me know what you guys and gals think!
+
 */
-
-/* ###################################### */
-/* That being said, my design is based on the Figma file since it has less discrepancies compared to the free JPG version. */
 /* ###################################### */
 
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,600;1,500;1,600&display=swap");
@@ -106,11 +105,21 @@ body {
       .profile-picture {
         margin-right: 17px;
         img {
-          height: 30px;
-          width: 30px;
-          border: 2px solid black;
+          position: relative;
+          margin: auto;
+          height: 28px;
+          width: 28px;
           border-radius: 15px;
         }
+      }
+      .profile-picture.purp-border {
+        background-color: $light-violet;
+        height: 32px;
+        width: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
       }
       .flex-col {
         .user {
@@ -149,6 +158,9 @@ body {
         position: absolute;
         right: 24px;
         top: 0;
+        @include _1440 {
+          right: 80px;
+        }
       }
       .profile-picture {
         img {
