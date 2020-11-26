@@ -44,7 +44,7 @@ $dark-gray-blue-50: hsla(217, 19%, 35%, 0.5);
 $dark-gray-blue-70: hsla(217, 19%, 35%, 0.7);
 $black-blue: hsl(219, 29%, 14%);
 $white: hsl(0, 0%, 100%);
-$white-70: hsla(0, 0%, 100%, 0.7);
+$white-70: hsla(0, 0%, 81, 0.7);
 $white-50: hsla(0, 0%, 100%, 0.5);
 
 /* Neutral */
@@ -71,18 +71,43 @@ li {
   color: hsl(228, 45%, 44%);
 }
 
-.grid {
-  padding: 71px 24px;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.grid {
+  background-color: $light-gray-blue;
+  height: 100%;
+  width: 100%;
+  padding: 71px 24px;
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 300px));
+  gap: 24px;
+  @include _1440 {
+    width: 1110px;
+    grid-template-columns: repeat(4, 255px);
+    grid-template-rows: 282px 266px;
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+  }
   .card {
     padding: 26px 32px 32px;
     border-radius: 8px;
+    max-width: 540px;
     .flex-row {
       display: flex;
+      margin-bottom: 18px;
       .profile-picture {
+        margin-right: 17px;
         img {
-          height: 32px;
-          width: 32px;
+          height: 30px;
+          width: 30px;
           border: 2px solid black;
           border-radius: 15px;
         }
@@ -92,6 +117,7 @@ li {
           font-weight: 500;
           font-size: 13px;
           line-height: 13px;
+          margin-bottom: 4px;
         }
         .verification {
           font-weight: 500;
@@ -100,41 +126,130 @@ li {
         }
       }
     }
-  }
-  .card.daniel {
-    background-color: $violet;
-    color: $white;
-    position: relative;
-    .quote-graphic {
-      position: absolute;
-      right: 24px;
-      top: 0;
+    .bold-text {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 16px;
     }
-    .profile-picture {
-      img {
-        border-color: $light-violet;
+    .quote {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 18px;
+    }
+    &.daniel {
+      background-color: $violet;
+      color: $white;
+      position: relative;
+      @include _1440 {
+        grid-area: daniel;
+      }
+      .quote-graphic {
+        position: absolute;
+        right: 24px;
+        top: 0;
+      }
+      .profile-picture {
+        img {
+          border-color: $light-violet;
+        }
+      }
+      .flex-col {
+        z-index: 1;
+        .verification {
+          color: $white-50;
+        }
+      }
+      .bold-text {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 40px;
+      }
+      .quote {
+        color: $white-70;
+        z-index: 1;
       }
     }
-    .flex-col {
+    &.jonathan {
+      background-color: $dark-gray-blue;
+      @include _1440 {
+        grid-area: jonathan;
+      }
+      .profile-picture {
+        img {
+          border: none;
+        }
+      }
+      .user,
+      .bold-text {
+        color: $white;
+      }
       .verification {
         color: $white-50;
       }
+      .quote {
+        color: $white-70;
+      }
     }
-    .bold-text {
-      position: relative;
-      z-index: 1;
+    &.jeanette,
+    &.kira {
+      background-color: $white;
+      @include _1440 {
+        max-width: 255px;
+      }
+      .profile-picture {
+        img {
+          border: $white;
+        }
+      }
+      .user,
+      .bold-text {
+        color: $dark-gray-blue;
+      }
+      .verification {
+        color: $dark-gray-blue-50;
+      }
+      .quote {
+        color: $dark-gray-blue-70;
+      }
     }
-    .quote {
-      color: $white-70;
-      z-index: 1;
+    &.jeanette {
+      @include _1440 {
+        grid-area: jeanette;
+      }
     }
-  }
-  .card.jonathan {
-  }
-  .card.jeanette {
-  }
-  .card.patrick {
-  }
-  .card.kira {
+    &.kira {
+      @include _1440 {
+        grid-area: kira;
+      }
+    }
+    &.patrick {
+      background-color: $black-blue;
+      @include _1440 {
+        grid-area: patrick;
+      }
+      .flex-row {
+        .profile-picture {
+          img {
+            border-color: $violet;
+          }
+        }
+        .flex-col {
+          .user {
+            color: $white;
+          }
+          .verification {
+            color: $white-50;
+          }
+        }
+      }
+      .bold-text {
+        color: $light-gray-blue;
+      }
+      .quote {
+        color: $white-70;
+      }
+    }
   }
 }
