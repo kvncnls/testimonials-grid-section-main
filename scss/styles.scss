@@ -56,6 +56,8 @@ html {
   background-color: $light-gray-blue;
   font-family: "Barlow Semi Condensed", sans-serif;
   font-size: 13px;
+  height: 100vh;
+  width: 100vw;
 }
 
 li {
@@ -79,6 +81,10 @@ body {
 }
 
 .grid {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
   background-color: $light-gray-blue;
   height: 100%;
   width: 100%;
@@ -86,12 +92,13 @@ body {
   /* display: flex;
   flex-direction: column; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(255px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(255px, 327px));
   gap: 24px;
   @include _1440 {
-    width: 1110px;
+    width: 1158px;
     grid-template-columns: repeat(4, 255px);
     grid-template-rows: 282px 266px;
+    gap: 30px;
     grid-template-areas:
       "daniel daniel jonathan kira"
       "jeanette patrick patrick kira";
@@ -100,6 +107,7 @@ body {
     padding: 26px 32px 32px;
     border-radius: 8px;
     max-width: 540px;
+    box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.247378);
     .flex-row {
       display: flex;
       margin-bottom: 18px;
@@ -165,6 +173,9 @@ body {
         position: relative;
         z-index: 1;
         margin-bottom: 40px;
+        @include _1440 {
+          margin-bottom: 16px;
+        }
       }
       .quote {
         color: $white-70;
