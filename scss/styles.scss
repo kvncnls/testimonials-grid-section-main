@@ -79,7 +79,7 @@ body {
   margin-right: auto;
   background-color: $light-gray-blue;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
   padding: 71px 24px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(255px, 327px));
